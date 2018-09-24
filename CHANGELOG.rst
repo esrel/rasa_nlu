@@ -14,9 +14,55 @@ Added
 
 Changed
 -------
+- Training data is now validated after loading from files in ``loading.py`` instead of on initialisation of
+  ``TrainingData`` object
 
 Removed
 -------
+
+Fixed
+-----
+
+[0.13.4] - 2018-09-19
+^^^^^^^^^^^^^^^^^^^^^
+
+Fixed
+-----
+- pinned matplotlib to 2.x (not ready for 3.0 yet)
+- pytest-services since it wasn't used and caused issues on Windows
+
+[0.13.3] - 2018-08-28
+^^^^^^^^^^^^^^^^^^^^^
+
+Added
+-----
+- ``EndpointConfig`` class that handles authenticated requests (ported from Rasa Core)
+- ``DataRouter()`` class supports a ``model_server`` ``EndpointConfig``, which it regularly queries to fetch NLU models
+- this can be used with ``rasa_nlu.server`` with the ``--endpoint`` option (the key for this the model server config is ``model``)
+- docs on model fetching from a URL
+- ability to specify lookup tables in training data
+
+Changed
+-------
+- loading training data from a URL requires an instance of ``EndpointConfig``
+
+- Changed evaluate behaviour to plot two histogram bars per bin.
+  Plotting confidence of right predictions in a wine-ish colour
+  and wrong ones in a blue-ish colour.
+
+Removed
+-------
+
+Fixed
+-----
+- re-added support for entity names with special characters in markdown format
+
+[0.13.2] - 2018-08-28
+^^^^^^^^^^^^^^^^^^^^^
+
+Changed
+-------
+- added information about migrating the CRF component from 0.12 to 0.13
 
 Fixed
 -----
@@ -71,6 +117,7 @@ Added
 
 Changed
 -------
+- renamed CRF features ``wordX`` to ``suffixX`` and ``preX`` to ``suffixX``
 - L1 and L2 regularisation defaults in ``ner_crf`` both set to 0.1
 - ``whitespace_tokenizer`` ignores punctuation ``.,!?`` before
   whitespace or end of string

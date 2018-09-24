@@ -139,7 +139,7 @@ also returns a list of available projects the server can use to fulfill ``/parse
 ``GET /version``
 ^^^^^^^^^^^^^^^^
 
-This will return the current version of the Rasa NLU instance, as well as the minimum model version required for laoding models.
+This will return the current version of the Rasa NLU instance, as well as the minimum model version required for loading models.
 
 .. code-block:: bash
 
@@ -175,3 +175,8 @@ This will unload a model from the server memory
 
     $ curl -X DELETE localhost:5000/models?project=my_restaurant_search_bot&model=model_XXXXXX
 
+
+.. include:: feedback.inc
+	
+.. raw:: html
+   :file: livechat.html
